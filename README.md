@@ -24,7 +24,7 @@ erDiagram
         string role
         string avatar_url
         string department
-        timestamp created_at
+        string created_at
     }
 
     users {
@@ -33,7 +33,7 @@ erDiagram
         string email
         string role
         string avatar_url
-        timestamp created_at
+        string created_at
     }
 
     products {
@@ -41,12 +41,12 @@ erDiagram
         string student_id FK
         string title
         string description
-        float price
+        string price
         string category_id FK
         string image_url
         string status
-        int stock
-        timestamp created_at
+        string stock
+        string created_at
     }
 
     orders {
@@ -55,23 +55,23 @@ erDiagram
         string buyer_id FK
         string rider_id FK
         string status
-        boolean needs_delivery
-        boolean seller_accepted
+        string needs_delivery
+        string seller_accepted
         string delivery_image_url
         string seller_proof_image
         string delivery_address
         string delivery_location
-        float delivery_fee
-        timestamp created_at
+        string delivery_fee
+        string created_at
     }
 
     riders {
         string student_id PK_FK
         string vehicle_type
         string license_plate
-        boolean is_active
-        float rating
-        timestamp created_at
+        string is_active
+        string rating
+        string created_at
     }
 
     categories {
@@ -89,7 +89,7 @@ erDiagram
         string status
         string admin_reply
         string admin_notes
-        timestamp created_at
+        string created_at
     }
 
     refund_requests {
@@ -100,7 +100,7 @@ erDiagram
         string evidence_url
         string status
         string admin_notes
-        timestamp created_at
+        string created_at
     }
 
     messages {
@@ -109,8 +109,8 @@ erDiagram
         string receiver_id FK
         string product_id FK
         string content
-        boolean is_read
-        timestamp created_at
+        string is_read
+        string created_at
     }
 
     notifications {
@@ -119,6 +119,6 @@ erDiagram
         string title
         string message
         string link
-        boolean is_read
-        timestamp created_at
+        string is_read
+        string created_at
     }
