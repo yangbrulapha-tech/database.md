@@ -66,7 +66,7 @@ erDiagram
     }
 
     riders {
-        string student_id PK_FK
+        string student_id PK
         string vehicle_type
         string license_plate
         string is_active
