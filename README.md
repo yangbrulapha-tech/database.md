@@ -1,23 +1,6 @@
 ```mermaid
 erDiagram
-    profiles ||--o{ products : "sells"
-    profiles ||--o{ orders : "buys"
-    profiles ||--o{ messages : "sends_receives"
-    profiles ||--o{ notifications : "receives"
-    profiles ||--o{ refund_requests : "requests"
-    profiles ||--o{ product_reports : "reports"
-    profiles ||--|| riders : "is_rider"
-    profiles ||--|| users : "has_account"
-    
-    categories ||--o{ products : "categorizes"
-    products ||--o{ orders : "included_in"
-    products ||--o{ messages : "discussed_in"
-    products ||--o{ product_reports : "has_issues"
-    
-    orders ||--o{ refund_requests : "may_have"
-    riders ||--o{ orders : "delivers"
-
-    profiles {
+    PROFILES {
         string student_id PK
         string full_name
         string email
@@ -27,7 +10,7 @@ erDiagram
         string created_at
     }
 
-    users {
+    USERS {
         string student_id PK
         string full_name
         string email
@@ -36,7 +19,7 @@ erDiagram
         string created_at
     }
 
-    products {
+    PRODUCTS {
         string product_id PK
         string student_id FK
         string title
@@ -49,7 +32,7 @@ erDiagram
         string created_at
     }
 
-    orders {
+    ORDERS {
         string order_id PK
         string product_id FK
         string buyer_id FK
@@ -65,7 +48,7 @@ erDiagram
         string created_at
     }
 
-    riders {
+    RIDERS {
         string student_id PK
         string vehicle_type
         string license_plate
@@ -74,12 +57,12 @@ erDiagram
         string created_at
     }
 
-    categories {
+    CATEGORIES {
         string id PK
         string name
     }
 
-    product_reports {
+    PRODUCT_REPORTS {
         string id PK
         string student_id FK
         string product_id FK
@@ -92,7 +75,7 @@ erDiagram
         string created_at
     }
 
-    refund_requests {
+    REFUND_REQUESTS {
         string refund_id PK
         string order_id FK
         string student_id FK
@@ -103,7 +86,7 @@ erDiagram
         string created_at
     }
 
-    messages {
+    MESSAGES {
         string id PK
         string sender_id FK
         string receiver_id FK
@@ -113,7 +96,7 @@ erDiagram
         string created_at
     }
 
-    notifications {
+    NOTIFICATIONS {
         string id PK
         string student_id FK
         string title
@@ -122,3 +105,20 @@ erDiagram
         string is_read
         string created_at
     }
+
+    PROFILES ||--o{ PRODUCTS : "sells"
+    PROFILES ||--o{ ORDERS : "buys"
+    PROFILES ||--o{ MESSAGES : "sends_receives"
+    PROFILES ||--o{ NOTIFICATIONS : "receives"
+    PROFILES ||--o{ REFUND_REQUESTS : "requests"
+    PROFILES ||--o{ PRODUCT_REPORTS : "reports"
+    PROFILES ||--|| RIDERS : "is_rider"
+    PROFILES ||--|| USERS : "has_account"
+    
+    CATEGORIES ||--o{ PRODUCTS : "categorizes"
+    PRODUCTS ||--o{ ORDERS : "included_in"
+    PRODUCTS ||--o{ MESSAGES : "discussed_in"
+    PRODUCTS ||--o{ PRODUCT_REPORTS : "has_issues"
+    
+    ORDERS ||--o{ REFUND_REQUESTS : "may_have"
+    RIDERS ||--o{ ORDERS : "delivers"
